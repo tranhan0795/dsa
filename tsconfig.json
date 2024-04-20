@@ -20,8 +20,8 @@
     "resolveJsonModule": true,
     "noUnusedLocals": false,
     "skipDefaultLibCheck": true,
-    "noUnusedParameters":false,
+    "noUnusedParameters": false
   },
   "exclude": ["node_modules"],
-  "include": ["*ts"]
+  "include": ["src/*.ts"]
 }
