@@ -1,33 +1,34 @@
-const num = parseInt("01001011", 2);
-const s = num.toString(2);
+function search(nums: number[], target: number): number {
+  let l = 0;
+  let r = nums.length - 1;
 
-function binaryToDecimal(binaryNumber: string): number {
-  let decimalNumber = 0;
+  //find pivot index (pivot = l = r)
+  while (l < r) {
+    const m = Math.floor((l + r) / 2);
+    if (nums[m] < nums[0]) {
+      r = m - 1;
+    } else {
+      l = m + 1;
+    }
+  }
+  //[4,5,6,7,0,1,2]
+  // l = r = 4
 
-  // Iterate over each binary digit from right to left
-  for (let i = binaryNumber.length - 1, j = 0; i >= 0; i--, j++) {
-    // Convert binary digit to decimal and add it to the result
-    if (binaryNumber[i] === "1") {
-      decimalNumber += Math.pow(2, j);
+  if (target < nums[0]) {
+    r = nums.length - 1;
+  } else {
+    l = 0;
+  }
+
+  while (l <= r) {
+    const m = Math.floor((l + r) / 2);
+    if (nums[m] === target) return m;
+    if (nums[m] < target) {
+      l = m + 1;
+    } else {
+      r = m - 1;
     }
   }
 
-  return decimalNumber;
-}
-
-function decimalToBinary(decimalNumber: number): string {
-  if (decimalNumber === 0) {
-    return "0";
-  }
-
-  let binaryString = "";
-  let quotient = decimalNumber;
-
-  while (quotient > 0) {
-    const remainder = quotient % 2; // Get the remainder when dividing by 2
-    binaryString = remainder.toString() + binaryString; // Add the remainder to the beginning of the string
-    quotient = Math.floor(quotient / 2); // Update the quotient for the next iteration
-  }
-
-  return binaryString;
+  return -1;
 }

@@ -16,7 +16,7 @@ function union(i: number, j: number) {
     return false;
   }
 
-  parent[irep] = jrep;
+  parentU[irep] = jrep;
   return true;
 }
 
@@ -25,7 +25,7 @@ function find(i: number) {
     return i;
   } else {
     const result = find(parentU[i]);
-    parent[i] = result;
+    parentU[i] = result;
     return result;
   }
 }

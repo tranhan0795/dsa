@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   MinPriorityQueue,
   PriorityQueue,
@@ -114,33 +113,8 @@ function numberOfSubarrays(nums: number[]): number {
   return a;
 }
 
-console.log(findKthSmallest([3, 6, 9], 3));
-
-function findKthSmallest(coins: number[], k: number): number {
-  const mq = new MinPriorityQueue();
-  const s = new Set();
-
-  coins.sort((a, b) => a - b);
-
-  for (let i = 0; i < coins.length; i++) {
-    const d = Math.ceil(coins[i] / coins[0]);
-    const l = Math.ceil(k / d);
-    console.log(l, coins[i]);
-    for (let x = 0; x <= l; x++) {
-      const v = coins[i] * x;
-      if (!s.has(v)) {
-        mq.enqueue(v);
-        s.add(v);
-      }
-    }
-  }
-
-  let r;
-
-  while (k !== -1) {
-    r = mq.dequeue();
-    k--;
-  }
-
-  return r.element;
-}
+console.log(
+  (() => {
+    return 1;
+  })(),
+);
