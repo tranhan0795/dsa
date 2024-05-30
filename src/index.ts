@@ -84,35 +84,6 @@ class Queue<T> {
   }
 }
 
-function numberOfSubarrays(nums: number[]): number {
-  let a = 0;
-  let l = 0;
-  let r = 0;
-
-  const m = new Map();
-
-  while (r < nums.length) {
-    while (r < nums.length && nums[r] === nums[l]) {
-      a = a + r - l + 1;
-      if (m.has(nums[l])) {
-        //    console.log(m.get(nums[l]))
-        a = a + m.get(nums[l]);
-      }
-      r++;
-    }
-
-    for (const k of m) {
-      console.log(k[0]);
-      if (k[0] < nums[l]) m.delete(k);
-    }
-    m.set(nums[l], (m.get(nums[l]) || 0) + (r - l));
-
-    l = r;
-  }
-
-  return a;
-}
-
 console.log(
   (() => {
     return 1;

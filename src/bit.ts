@@ -1,5 +1,24 @@
 const num = parseInt("01001011", 2);
+const a = 101010011010101;
+const num1 = BigInt(`0b${a}`);
 const s = num.toString(2);
+
+//count total of 1 bit
+const check = (n) => {
+  const s = n.toString(2);
+  let count = 0;
+  while (n) {
+    if (n % 2 === 1) count++;
+    n = n >> 1;
+  }
+
+  // while (n) {
+  //   n &= n - 1;
+  //   count++;
+  // }
+
+  return count;
+};
 
 function binaryToDecimal(binaryNumber: string): number {
   let decimalNumber = 0;
@@ -45,3 +64,23 @@ function convertToTitle(columnNumber: number): string {
 
   return result;
 }
+
+// XOR Properties
+// Self-Inverse Property
+// [ a ^ a = 0 ]
+// Any number XOR-ed with itself results in zero.
+
+// Identity Property
+// [ a ^ 0 = a ]
+// Any number XOR-ed with zero remains unchanged.
+
+// Commutative Property
+// [ a ^ b = b ^ a ]
+// The order of the operands does not matter in XOR.
+
+// Associative Property
+// [ a ^ (b ^ c) = (a ^ b) ^ c ]
+// XOR operations can be grouped in any order.
+
+// Inversion Property
+// If [ c = a ^ b ], then [ a = b ^ c ] and [ b = a ^ c ].
