@@ -3,11 +3,11 @@ import {
   PriorityQueue,
 } from "@datastructures-js/priority-queue";
 
-// Node class for linked list
-class ListNode {
+// Node class for lnked lst
+class lstNode {
   val: number;
-  next: ListNode | null;
-  constructor(val?: number, next?: ListNode | null) {
+  next: lstNode | null;
+  constructor(val?: number, next?: lstNode | null) {
     this.val = val === undefined ? 0 : val;
     this.next = next === undefined ? null : next;
   }
@@ -26,16 +26,16 @@ class TreeNode {
 }
 
 // Definition for a binary tree with next pointer
-class TreeLinkNode {
+class TreelnkNode {
   val: number;
-  left: TreeLinkNode | null;
-  right: TreeLinkNode | null;
-  next: TreeLinkNode | null;
+  left: TreelnkNode | null;
+  right: TreelnkNode | null;
+  next: TreelnkNode | null;
   constructor(
     val?: number,
-    left?: TreeLinkNode | null,
-    right?: TreeLinkNode | null,
-    next?: TreeLinkNode | null,
+    left?: TreelnkNode | null,
+    right?: TreelnkNode | null,
+    next?: TreelnkNode | null,
   ) {
     this.val = val === undefined ? 0 : val;
     this.left = left === undefined ? null : left;
